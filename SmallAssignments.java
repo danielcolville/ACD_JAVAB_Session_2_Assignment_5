@@ -3,19 +3,22 @@ import java.util.Scanner;
 public class SmallAssignments {
 	public static void main(String[] args) {
 		Scanner scan=new Scanner(System.in);
-		printEvens();
-		printOddsUser(scan);
-			
-		isPrime(4);
-			
-		palInt(121);	
 		
-		isArmstrong(153);
+		printEvens();//Q3
+		printOddsUser(scan);//Q4
+			
+		isPrime(4);//Q5
+			
+		palInt(121);//Q6
 		
-		String dups="abbacdef";
+		isArmstrong(153);//Q7
+		
+		String dups="abbacdef";//Q8
 		System.out.println("Original String: "+dups);
 		System.out.println("With duplicate characters removed: "+rmDupChar(dups));
 		
+		
+		//Q9
 		System.out.print("Enter number of characters: ");
 		int numC=scan.nextInt();
 		String str="";
