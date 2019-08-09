@@ -1,34 +1,50 @@
 package smallAssignments;
 import java.util.Scanner;
 public class SmallAssignments {
-		public static void main(String[] args) {
-			/*printEvens();
-			printOddsUser();
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		printEvens();
+		printOddsUser(scan);
 			
-			isPrime(4);
+		isPrime(4);
 			
-			palInt(121);
-			
-			
-			isArmstrong(153);
-			
-			System.out.println(rmDupChar("abbacdef"));
-			*/
-			Scanner scan=new Scanner(System.in);
-			System.out.print("Enter a String with no duplicates: ");
-			String str=scan.next();
-			str=rmDupChar(str);
-			
-			printComb(str,str.length());
-			scan.close();
+		palInt(121);	
+		
+		isArmstrong(153);
+		
+		String dups="abbacdef";
+		System.out.println("Original String: "+dups);
+		System.out.println("With duplicate characters removed: "+rmDupChar(dups));
+		
+		System.out.print("Enter number of characters: ");
+		int numC=scan.nextInt();
+		String str="";
+		System.out.print("Enter a character");
+		str+=scan.next().charAt(0);
+		
+		while(str.length()<numC) {
+			System.out.print("Enter another character");
+			char next=scan.next().charAt(0);
+			boolean add=true;
+			for(int i=0;i<str.length();i++) {
+				if(str.charAt(i)==next) {
+					add=false;
+				}
+			}
+			if(add) {
+				str+=next;
+			}
 		}
+		
+		printComb(str,str.length());
+	}
+		
 		public static void printEvens() {
 			for(int i=0;i<=200;i+=2) {
 				System.out.println(i);
 			}
 		}
-		public static void printOddsUser() {
-			Scanner scan=new Scanner(System.in);
+		public static void printOddsUser(Scanner scan) {
 			System.out.print("Enter the number of odd numbers to print: ");
 			int n=scan.nextInt();
 			System.out.print("Enter the starting number: ");
@@ -39,7 +55,6 @@ public class SmallAssignments {
 			for(int i=s;i<s+n*2;i+=2) {
 				System.out.println(i);
 			}
-			scan.close();
 		}
 		public static void palInt(int pal) {
 			String palS=""+pal;
@@ -50,11 +65,11 @@ public class SmallAssignments {
 				}
 				else {
 					isPal=false;
-					System.out.println("Not a palindrome");
+					System.out.println(pal+" is a palindrome");
 				}
 			}
 			if(isPal) {
-				System.out.println("Number is a palindrome");
+				System.out.println(pal+" is a palindrome");
 			}
 		}
 		public static void isArmstrong(int num) {
@@ -75,18 +90,18 @@ public class SmallAssignments {
 		public static void isPrime(int num) {
 			int breakpoint=num/2;
 			if(num==0||num==1) {
-				System.out.println("Number not Prime");
+				System.out.println(num+" is not Prime");
 				return;
 			}
 			else {
 				for(int i=2;i<=breakpoint;i++) {
 					if(num%i==0) {
-						System.out.println("Number not Prime");
+						System.out.println(num+" is not Prime");
 						return;
 					}
 				}
 			}
-			System.out.println("Number is prime");
+			System.out.println(num+" is prime");
 		}
 
 		public static String rmDupChar(String str) {
